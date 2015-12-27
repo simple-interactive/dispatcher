@@ -6,8 +6,8 @@ module.exports = function(grunt) {
             token: '****'
         },
         dev: {
-            endpoint: 'http://simple.backend/',
-            token: '****'
+            endpoint: 'http://md-back/dispatcher',
+            token: '1234'
         }
     };
 
@@ -26,8 +26,7 @@ module.exports = function(grunt) {
                     {cwd: 'images', src: [ '**' ], dest: build+'/images', expand: true},
                     {cwd: 'bower_components/bootstrap/dist/fonts', src: [ '**' ], dest: build+'/fonts', expand: true},
                     {src: 'index.html', dest: build+'/index.html'},
-                    {src: '.htaccess', dest: build+'/.htaccess'},
-                    {src: 'bower_components/icheck/skins/square/blue.png', dest: build+'/blue.png'},
+                    {src: '.htaccess', dest: build+'/.htaccess'}
                 ]
             }
         },
@@ -36,8 +35,8 @@ module.exports = function(grunt) {
                 files: {
                     'js': [
                         'bower_components/jquery/dist/jquery.js',
-                        'bower_components/jqueryui/index.js',
                         'bower_components/bootstrap/dist/js/bootstrap.js',
+                        'bower_components/jQuery-MD5/jquery.md5.js',
                         'app/**/*.js'
                     ]
                 }
@@ -83,6 +82,11 @@ module.exports = function(grunt) {
         grunt.file.write(build+'/app.min.js', allJs);
     });
 
+    grunt.registerTask('config', null, function(){
+        var allJs = "var config = " + JSON.stringify(selectedConfig) + ";" + grunt.file.read(build+'/app.min.js');
+        grunt.file.write(build+'/app.min.js', allJs);
+    });
+
     grunt.registerTask('layout', null, function(){
 
         function replaceSection(section, content) {
@@ -93,12 +97,12 @@ module.exports = function(grunt) {
 
         replaceSection('Grunt:Build:JSSection', "<script src=\"app.min.js?_=" + Number(new Date()) + "\"></script>");
         replaceSection('Grunt:Build:CSSSection', "<link href=\"app.min.css?_=" + Number(new Date()) + "\" rel=\"stylesheet\" />");
-        replaceSection('Grunt:Build:Config', "<script>var config = " + JSON.stringify(selectedConfig) + ";</script>");
+        replaceSection('Grunt:Build:Config', null);
     });
 
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-copy');
 
-    grunt.registerTask('default', ['uglify', 'cssmin', 'copy', 'concatTemplates', 'layout']);
+    grunt.registerTask('default', ['uglify', 'cssmin', 'copy', 'concatTemplates', 'config', 'layout']);
 };

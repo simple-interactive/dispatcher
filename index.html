@@ -15,15 +15,14 @@
     <!-- Grunt:Build:CSSSection -->
 
     <meta name="viewport" content="width=device-width, user-scalable=no" />
-
 </head>
 <body>
 
 <!-- Grunt:Build:JSSection -->
 
 <script src="bower_components/jquery/dist/jquery.js"></script>
-<script src="bower_components/jqueryui/index.js"></script>
 <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="bower_components/jQuery-MD5/jquery.md5.js"></script>
 
 <script src="app/core/view/view.js"></script>
 <script src="app/core/view/plugins/date.js"></script>
@@ -45,6 +44,9 @@
 <script src="app/core/module/module.js"></script>
 <script src="app/core/router.js"></script>
 
+<script src="app/plugins/view/translate.js"></script>
+
+<script src="app/services/locale.js"></script>
 <script src="app/services/loader.js"></script>
 <script src="app/services/ui.js"></script>
 <script src="app/services/api.js"></script>
@@ -54,15 +56,20 @@
 <script src="app/modules/layout/index.js"></script>
 <script type="application/xhtml+xml" data-view="layout/view/index" data-src="app/modules/layout/view/index.html"></script>
 
-<script src="app/modules/product/index.js"></script>
-<script src="app/modules/product/manage.js"></script>
-<script type="application/xhtml+xml" data-view="product/view/index" data-src="app/modules/product/view/index.html"></script>
-<script type="application/xhtml+xml" data-view="product/view/list" data-src="app/modules/product/view/list.html"></script>
-<script type="application/xhtml+xml" data-view="product/view/manage" data-src="app/modules/product/view/manage.html"></script>
-<script type="application/xhtml+xml" data-view="product/view/option" data-src="app/modules/product/view/option.html"></script>
-<script type="application/xhtml+xml" data-view="product/view/ingredient" data-src="app/modules/product/view/ingredient.html"></script>
-<script type="application/xhtml+xml" data-view="product/view/image" data-src="app/modules/product/view/image.html"></script>
-<script type="application/xhtml+xml" data-view="product/view/ingredient-list" data-src="app/modules/product/view/ingredient-list.html"></script>
+<script src="app/modules/table/index.js"></script>
+<script type="application/xhtml+xml" data-view="table/view/index" data-src="app/modules/table/view/index.html"></script>
+
+<script src="app/modules/table/createTabDialog.js"></script>
+<script type="application/xhtml+xml" data-view="table/view/createTabDialog" data-src="app/modules/table/view/createTabDialog.html"></script>
+<!--<script src="app/modules/product/index.js"></script>-->
+<!--<script src="app/modules/product/manage.js"></script>-->
+<!--<script type="application/xhtml+xml" data-view="product/view/index" data-src="app/modules/product/view/index.html"></script>-->
+<!--<script type="application/xhtml+xml" data-view="product/view/list" data-src="app/modules/product/view/list.html"></script>-->
+<!--<script type="application/xhtml+xml" data-view="product/view/manage" data-src="app/modules/product/view/manage.html"></script>-->
+<!--<script type="application/xhtml+xml" data-view="product/view/option" data-src="app/modules/product/view/option.html"></script>-->
+<!--<script type="application/xhtml+xml" data-view="product/view/ingredient" data-src="app/modules/product/view/ingredient.html"></script>-->
+<!--<script type="application/xhtml+xml" data-view="product/view/image" data-src="app/modules/product/view/image.html"></script>-->
+<!--<script type="application/xhtml+xml" data-view="product/view/ingredient-list" data-src="app/modules/product/view/ingredient-list.html"></script>-->
 
 <!-- Grunt:Build:JSSection -->
 
@@ -70,8 +77,8 @@
 
 <script>
     var config = {
-        endpoint: 'http://simple.backend',
-        token: '****'
+        endpoint: 'http://md-back/dispatcher',
+        token: '1234'
     };
 </script>
 

@@ -1,0 +1,37 @@
+
+<div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="table">
+        <button class="btn btn-primary" id="createDeviceBtn">tab-table-add-new-table</button>
+
+        <table class="table table-bordered" id="good">
+            <thead>
+            <tr>
+                <th><%=plugins.translate('Фраза на русском')%>tab-table-name</th>
+                <th>tab-table-token</th>
+                <th>tab-table-pair</th>
+                <th>tab-table-status</th>
+                <th>tab-table-edit</th>
+                <th>tab-table-remove</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% devices.forEach(function(item){ %>
+            <tr data-id="<%=item.token%>">
+                <td><%=item.name%></td>
+                <td><%=item.token%></td>
+                <td><%=item.pair%></td>
+                <td><%=item.status%></td>
+                <td>
+                    <button class="btn btn-default"  onclick="window.modules.devices.edit(this)">edit</button>
+                </td>
+                <td>
+                    <button class="btn btn-remove"  onclick="window.modules.devices.remove(this)">remove</button>
+                </td>
+            </tr>
+            <% }); %>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</div>
