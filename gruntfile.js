@@ -2,8 +2,8 @@ module.exports = function(grunt) {
 
     var config = {
         prod : {
-            endpoint: ' ',
-            token: '****'
+            endpoint: 'http://185.70.109.10:85/dispatcher',
+            token: 'dispatcher-prod'
         },
         dev: {
             endpoint: 'http://md-back/dispatcher',
@@ -36,7 +36,7 @@ module.exports = function(grunt) {
                     'js': [
                         'bower_components/jquery/dist/jquery.js',
                         'bower_components/bootstrap/dist/js/bootstrap.js',
-                        'bower_components/jQuery-MD5/jquery.md5.js',
+                        'bower_components/md5/jquery.md5.js',
                         'app/**/*.js'
                     ]
                 }
