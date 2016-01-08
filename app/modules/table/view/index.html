@@ -1,12 +1,12 @@
-
 <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="table">
-        <button class="btn btn-primary" id="createDeviceBtn">tab-table-add-new-table</button>
-
+        <div class="table-bar">
+            <button class="btn btn-primary" id="createDeviceBtn">tab-table-add-new-table</button>
+        </div>
         <table class="table table-bordered" id="good">
             <thead>
             <tr>
-                <th><%=plugins.translate('Фраза на русском')%>tab-table-name</th>
+                <th>tab-table-name</th>
                 <th>tab-table-token</th>
                 <th>tab-table-pair</th>
                 <th>tab-table-status</th>
@@ -16,7 +16,7 @@
             </thead>
             <tbody>
             <% devices.forEach(function(item){ %>
-            <tr data-id="<%=item.token%>">
+            <tr data-id="<%=item.id%>">
                 <td><%=item.name%></td>
                 <td><%=item.token%></td>
                 <td><%=item.pair%></td>

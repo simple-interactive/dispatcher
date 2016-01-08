@@ -1,4 +1,5 @@
 modules.devices  = function(){
+
     this.init = function(){
         self.loadTable();
         module.load('deviceModal');
@@ -20,8 +21,8 @@ modules.devices  = function(){
     };
 
     this.edit = function(el){
-        var token = $(el).closest('tr').data('id');
-        window.modules.deviceModal.edit(token);
+        var id = $(el).closest('tr').data('id');
+        window.modules.deviceModal.edit(id);
     };
 
     this.remove = function(el){

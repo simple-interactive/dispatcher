@@ -17,6 +17,7 @@ window.services.api = function(){
      * Default status of table is STATUS_ACTIVE
      *
      * @param {object} data
+     * @param {string} data.id
      * @param {string} data.name
      * @param {string} data.token
      * @param callback
@@ -30,12 +31,16 @@ window.services.api = function(){
         self.call('GET', 'table/list' , {}, callback);
     };
 
-    this.removeDevice = function(token, callback, failCallback){
-        self.call('POST', 'table/remove', {token: token}, callback, failCallback);
+    this.removeDevice = function(id, callback, failCallback){
+        self.call('POST', 'table/remove', {id: id}, callback, failCallback);
     };
 
-    this.getDevice = function(token, callback){
-        self.call('GET', 'table/index', {token: token}, callback);
+    this.getDevice = function(id, callback){
+        self.call('GET', 'table/index', {id: id}, callback);
+    };
+
+    this.editDevice = function (data, callback, failCallbak){
+        self.call('POST', 'table/index', data, callback, failCallbak);
     };
 
     /**
