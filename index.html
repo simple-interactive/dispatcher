@@ -22,7 +22,8 @@
 
 <script src="bower_components/jquery/dist/jquery.js"></script>
 <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-<script src="bower_components/md5/jquery.md5.js"></script>
+<script src="bower_components/bootstrap/js/tab.js"></script>
+<script src="bower_components/jQuery-MD5/jquery.md5.js"></script>
 
 <script src="app/core/view/view.js"></script>
 <script src="app/core/view/plugins/date.js"></script>
@@ -61,6 +62,10 @@
 
 <script src="app/modules/table/createTabDialog.js"></script>
 <script type="application/xhtml+xml" data-view="table/view/createTabDialog" data-src="app/modules/table/view/createTabDialog.html"></script>
+<script src="app/modules/order/index.js"></script>
+<script type="application/xhtml+xml" data-view="order/view/index" data-src="app/modules/order/view/index.html"></script>
+<script src="app/modules/order/orderModal.js"></script>
+<script type="application/xhtml+xml" data-view="order/view/orderModal" data-src="app/modules/order/view/orderModal.html"></script>
 <!--<script src="app/modules/product/index.js"></script>-->
 <!--<script src="app/modules/product/manage.js"></script>-->
 <!--<script type="application/xhtml+xml" data-view="product/view/index" data-src="app/modules/product/view/index.html"></script>-->
@@ -78,7 +83,11 @@
 <script>
     var config = {
         endpoint: 'http://md-back/dispatcher',
-        token: '1234'
+        token: '1234',
+        tableColors:{
+            wait: 'gray',
+            exists: 'yellow'
+        }
     };
 </script>
 

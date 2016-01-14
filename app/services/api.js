@@ -39,8 +39,20 @@ window.services.api = function(){
         self.call('GET', 'table/index', {id: id}, callback);
     };
 
-    this.editDevice = function (data, callback, failCallbak){
+    this.editDevice = function(data, callback, failCallbak){
         self.call('POST', 'table/index', data, callback, failCallbak);
+    };
+
+    this.getOrders = function(callback){
+        self.call('GET', 'order/list', {}, callback);
+    };
+
+    this.changeOrderStatus = function(data, callback, failCallback){
+        self.call('POST','order/status' ,data, callback, failCallback);
+    };
+
+    this.changeOrderPayStatus = function(data, callback, failCallback){
+        self.call('POST','order/pay' ,data, callback, failCallback);
     };
 
     /**
