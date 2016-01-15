@@ -1,8 +1,5 @@
 window.services.api = function(){
 
-    this.STATUS_ACTIVE = 'active';
-    this.STATUS_LOCK = 'lock';
-
     /**
      * @type {{endpoint: (config.endpoint|string)}}
      */
@@ -11,19 +8,10 @@ window.services.api = function(){
         token : config.token
     };
 
-    /**
-     * Add table (tablet).
-     *
-     * Default status of table is STATUS_ACTIVE
-     *
-     * @param {object} data
-     * @param {string} data.id
-     * @param {string} data.name
-     * @param {string} data.token
-     * @param callback
-     */
-    this.addDevice = function(data, callback, failCallback){
-        data.status =  self.STATUS_ACTIVE;
+    this.manageDevice = function(data, callback, failCallback){
+        if (!data.id) {
+            data.status =  'active';
+        }
         self.call('POST', 'table/index', data, callback, failCallback);
     };
 
@@ -39,20 +27,24 @@ window.services.api = function(){
         self.call('GET', 'table/index', {id: id}, callback);
     };
 
-    this.editDevice = function(data, callback, failCallbak){
-        self.call('POST', 'table/index', data, callback, failCallbak);
+    this.updateDispatcher = function(callback){
+        self.call('GET', 'index', {}, callback);
     };
 
     this.getOrders = function(callback){
         self.call('GET', 'order/list', {}, callback);
     };
 
-    this.changeOrderStatus = function(data, callback, failCallback){
-        self.call('POST','order/status' ,data, callback, failCallback);
+    this.changeOrderStatus = function(data){
+        self.call('POST', 'order/status', data);
     };
 
-    this.changeOrderPayStatus = function(data, callback, failCallback){
-        self.call('POST','order/pay' ,data, callback, failCallback);
+    this.changeOrderPayStatus = function(data){
+        self.call('POST', 'order/pay', data);
+    };
+
+    this.stopCallingWaiter = function(id, callback){
+        self.call('POST', 'table/stop-calling-waiter', {id: id}, callback);
     };
 
     /**
@@ -61,7 +53,7 @@ window.services.api = function(){
      * @param {string} method
      * @param {string} endpoint
      * @param {object} data
-     * @param {function} callback
+     * @param {function|null} [callback=null]
      * @param {function|null} [failCallback=null]
      */
     this.call = function(method, endpoint, data, callback, failCallback){
@@ -95,7 +87,9 @@ window.services.api = function(){
                 } catch (err) {}
 
                 if (response.status == 200) {
-                    callback(parsedResponse);
+                    if (callback) {
+                        callback(parsedResponse);
+                    }
                 }
                 else if (response.status == 400 && failCallback) {
                     failCallback(parsedResponse);

@@ -1,8 +1,15 @@
-<div class="tab" id="order" style="display: none;">
-    <% tables.forEach(function(el){ %>
-        <div data-tableid="<%=el.id%>" class="order-table">
-            <%=el.name%>
-        </div>
-    <% }); %>
-</div>
+<div class="row animated fadeIn">
 
+    <% tables.forEach(function(table){ %>
+
+        <div data-table="true" data-id="<%= table.id %>" class="col-xs-2">
+            <div class="alert alert-default">
+                <strong><%= table.name %></strong>
+                <div class="indicator glyphicon glyphicon-exclamation-sign order animated infinite flash"></div>
+                <div class="indicator glyphicon glyphicon-phone-alt call animated infinite flash"></div>
+            </div>
+        </div>
+
+    <% }); %>
+
+</div>

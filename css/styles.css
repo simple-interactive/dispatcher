@@ -1,20 +1,93 @@
+body.auth {
+    background-color: #CCD1D9;
+}
+
 body {
-    margin:0;
-    padding:0;
+    background-color: rgb(241, 242, 246);
 }
 
-.table-bar {
-    padding: 20px 0px 20px;
+.text-shadow-light {
+    text-shadow: 2px 2px 2px rgba(255,255,255,1);
 }
 
-.order-table {
-    width: 300px;
-    height: 100px;
-    background: gray;
+.nav.nav-sidebar {
+    cursor: pointer;
+}
+
+.nav-sidebar > .active > a, .nav-sidebar > .active > a:hover, .nav-sidebar > .active > a:focus {
+    background-color: #4fc1e9 !important;
+    border-color: #4fc1e9 !important;
+    color: #fff !important;
+}
+
+.modal-footer {
+    margin-top: 15px;
+    border-top: 1px solid lightgray;
+}
+
+.breadcrumb, [role="menu"] {
+    cursor: pointer;
+}
+
+.btn-link {
+    cursor: pointer;
+}
+
+.devices > div {
+    height: 50px;
+}
+
+[data-device-manage] .modal-dialog {
+    width: 420px;
+}
+
+[data-device-manage] input {
     text-align: center;
-    line-height: 100px;
-    float: left;
-    margin: 5px;
-    color: white;
-    font-weight: bold;
+}
+
+[data-device-manage] [data-error] {
+    display: none;
+}
+
+[data-module=order] .alert {
+    height: 120px;
+}
+
+[data-module=order] .alert.alert-default {
+    background-color: #E6E9ED;
+    position: relative;
+}
+
+[data-module=order] .called .alert.alert-default .indicator.call {
+    display: block;
+}
+
+[data-module=order] .ordered .alert.alert-default .indicator.order {
+    display: block;
+}
+
+[data-module=order] .alert.alert-default .indicator {
+    display: none;
+    position: absolute;
+    font-size: 40px;
+    color: #37bc9b;
+    top: 70px;
+    right: 10px;
+    height: 40px;
+}
+
+[data-module=order] .alert.alert-default .indicator.call {
+    color: #f6bb42;
+    right: 60px;
+}
+
+[data-module=order] .alert.alert-default strong {
+    display: block;
+    height: 100px;
+    max-height: 46px;
+    overflow: hidden;
+}
+
+[data-order-details] .modal-dialog {
+    width: 80%;
 }

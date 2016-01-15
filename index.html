@@ -5,13 +5,12 @@
     <base href="/">
 
     <!-- Grunt:Build:CSSSection -->
-
     <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
     <link href="bower_components/bootflat/bootflat/css/bootflat.css" rel="stylesheet" />
     <link href="bower_components/animatecss/animate.css" rel="stylesheet" />
 
     <link href="css/styles.css" rel="stylesheet" />
-
+    <link href="css/dashboard.css" rel="stylesheet" />
     <!-- Grunt:Build:CSSSection -->
 
     <meta name="viewport" content="width=device-width, user-scalable=no" />
@@ -23,7 +22,7 @@
 <script src="bower_components/jquery/dist/jquery.js"></script>
 <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
 <script src="bower_components/bootstrap/js/tab.js"></script>
-<script src="bower_components/jQuery-MD5/jquery.md5.js"></script>
+<script src="bower_components/md5/jquery.md5.js"></script>
 
 <script src="app/core/view/view.js"></script>
 <script src="app/core/view/plugins/date.js"></script>
@@ -48,8 +47,6 @@
 <script src="app/plugins/view/translate.js"></script>
 
 <script src="app/services/locale.js"></script>
-<script src="app/services/loader.js"></script>
-<script src="app/services/ui.js"></script>
 <script src="app/services/api.js"></script>
 
 <script src="app/bootstrap.js"></script>
@@ -57,24 +54,17 @@
 <script src="app/modules/layout/index.js"></script>
 <script type="application/xhtml+xml" data-view="layout/view/index" data-src="app/modules/layout/view/index.html"></script>
 
-<script src="app/modules/table/index.js"></script>
-<script type="application/xhtml+xml" data-view="table/view/index" data-src="app/modules/table/view/index.html"></script>
+<script src="app/modules/device/index.js"></script>
+<script type="application/xhtml+xml" data-view="device/view/index" data-src="app/modules/device/view/index.html"></script>
 
-<script src="app/modules/table/createTabDialog.js"></script>
-<script type="application/xhtml+xml" data-view="table/view/createTabDialog" data-src="app/modules/table/view/createTabDialog.html"></script>
+<script src="app/modules/device/manage.js"></script>
+<script type="application/xhtml+xml" data-view="device/view/manage" data-src="app/modules/device/view/manage.html"></script>
+
 <script src="app/modules/order/index.js"></script>
 <script type="application/xhtml+xml" data-view="order/view/index" data-src="app/modules/order/view/index.html"></script>
-<script src="app/modules/order/orderModal.js"></script>
-<script type="application/xhtml+xml" data-view="order/view/orderModal" data-src="app/modules/order/view/orderModal.html"></script>
-<!--<script src="app/modules/product/index.js"></script>-->
-<!--<script src="app/modules/product/manage.js"></script>-->
-<!--<script type="application/xhtml+xml" data-view="product/view/index" data-src="app/modules/product/view/index.html"></script>-->
-<!--<script type="application/xhtml+xml" data-view="product/view/list" data-src="app/modules/product/view/list.html"></script>-->
-<!--<script type="application/xhtml+xml" data-view="product/view/manage" data-src="app/modules/product/view/manage.html"></script>-->
-<!--<script type="application/xhtml+xml" data-view="product/view/option" data-src="app/modules/product/view/option.html"></script>-->
-<!--<script type="application/xhtml+xml" data-view="product/view/ingredient" data-src="app/modules/product/view/ingredient.html"></script>-->
-<!--<script type="application/xhtml+xml" data-view="product/view/image" data-src="app/modules/product/view/image.html"></script>-->
-<!--<script type="application/xhtml+xml" data-view="product/view/ingredient-list" data-src="app/modules/product/view/ingredient-list.html"></script>-->
+
+<script src="app/modules/order/details.js"></script>
+<script type="application/xhtml+xml" data-view="order/view/details" data-src="app/modules/order/view/details.html"></script>
 
 <!-- Grunt:Build:JSSection -->
 
@@ -82,12 +72,8 @@
 
 <script>
     var config = {
-        endpoint: 'http://md-back/dispatcher',
-        token: '1234',
-        tableColors:{
-            wait: 'gray',
-            exists: 'yellow'
-        }
+        endpoint: 'http://185.70.109.10:85/dispatcher',
+        token: 'dispatcher-prod'
     };
 </script>
 

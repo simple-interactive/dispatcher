@@ -1,9 +1,0 @@
-<% if (ingredients.length) { %>
-    <% for (var i=0; i < ingredients.length; i++) { %>
-        <li><a data-select="true" data-id="<%= ingredients[i].id %>" data-title="<%= ingredients[i].title %>"><%= ingredients[i].title %></a></li>
-    <% } %>
-<% } else { %>
-    <li class="disabled"><a><%= plugins.translate('nothing-founded') %></a></li>
-<% } %>
-<li class="divider"></li>
-<li><a data-add="<%= search %>"><%= plugins.translate('add') %> "<%= search %>"</a></li>

@@ -28,24 +28,28 @@ window.module = function () {
         }
     };
 
-    this.load = function (name, params, element) {
+    this.load = function (name, params, element, fill) {
+
+        var container = null;
 
         if (!element) {
 
-            var container = $('body');
+            container = $('body');
 
             if ($('[data-container=main]').size()) {
                 container = $('[data-container=main]');
             }
-
-            container.prepend('<div data-loaded="true" data-module="' + name + '"></div>');
-            element = $('[data-module=' + name + ']').get();
         }
         else {
-            var container = $(element);
-            container.prepend('<div data-loaded="true" data-module="' + name + '"></div>');
-            element = $('[data-module=' + name + ']').get();
+            container = $(element);
         }
+
+        if (fill) {
+            container.html('<div data-loaded="true" data-module="' + name + '"></div>');
+        } else {
+            container.prepend('<div data-loaded="true" data-module="' + name + '"></div>');
+        }
+        element = $('[data-module=' + name + ']').get();
 
         if (!modules[name]) {
             console.log("Trying to load undefined module: '" + name + "'");
@@ -64,7 +68,7 @@ window.module = function () {
             modules[name].element = element;
             modules[name].view = view();
             modules[name].view.basePath = ['app', 'modules'].join('/');
-            modules[name].params = params?params:{};
+            modules[name].params = params?$.extend(true, {}, params):{};
             modules[name].init();
 
             modules[name].loaded = true;
@@ -103,6 +107,30 @@ window.module = function () {
 
     this.isExists = function (name) {
         return !(!modules[name]);
+    };
+
+    this.hide = function(name) {
+        if (modules['layout'].loaded && !$('[data-module=' + name + ']').data('hidden')) {
+            if (modules['layout'].hidden) {
+                modules['layout'].hidden();
+            } else {
+                $('[data-module=' + name + ']').hide();
+            }
+
+            $('[data-module=' + name + ']').data('hidden', true);
+        }
+    };
+
+    this.awake = function(){
+        if (modules['layout'].loaded && $('[data-module=' + name + ']').data('hidden')) {
+            if (modules['layout'].awake) {
+                modules['layout'].awake();
+            } else {
+                $('[data-module=' + name + ']').show();
+            }
+
+            $('[data-module=' + name + ']').removeAttr('data-hidden');
+        }
     };
 
     var self = this;

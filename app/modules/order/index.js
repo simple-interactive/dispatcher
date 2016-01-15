@@ -1,38 +1,67 @@
 modules.order = function (){
 
+    this.updateScheduler = null;
+    this.tables = null;
+
     this.init = function(){
-        self.loadTable();
-        module.load('orderModal');
-        this.updateScheduler = setInterval(function(){
+
+        self.updateScheduler = setInterval(function(){
             self.loadOrder();
-        }, 1000);
+        }, 2000);
+
+        self.loadTable();
     };
 
     this.loadTable = function(){
-        window.services.api.getDevices(function(data){
-            self.view.render('order/view/index', {tables:data.tables}, function(renderedHtml) {
-                $(self.element).html(renderedHtml);
-                $('.order-table').on('click', function(e){
-                    var orders= [];
-                    self.orders.forEach(function(item){
-                        if (item.tableId == $(e.target).attr('data-tableId')) {
-                            orders.push(item);
-                        }
-                    });
-                    modules.orderModal.open(orders);
+
+        services.api.updateDispatcher(function(data){
+
+            self.view.render('order/view/index', {tables: data.tables}, function(tpl) {
+                $(self.element).html(tpl);
+
+                self.loadOrder();
+
+                $(self.element).find('[data-table]').on('click', function(){
+                    var table = self.tables[$(this).index()];
+
+                    if (table.isWaiting || table.isOrdered) {
+                        module.load('orderDetails', {table: self.tables[$(this).index()]});
+                    }
                 });
             });
         });
     };
 
     this.loadOrder = function(){
-        window.services.api.getOrders(function(data){
-            $('.order-table').css('background', config.tableColors.wait);
-            for (var index in data.orders) {
-                self.orders = data.orders;
-                $('.order-table[data-tableid=' + data.orders[index].tableId +']').css('background', config.tableColors.exists);
-            }
+
+        window.services.api.updateDispatcher(function(data){
+
+            self.tables = data.tables;
+
+            $(self.element).find('[data-table]').removeClass('ordered');
+            $(self.element).find('[data-table]').removeClass('called');
+
+            self.tables.forEach(function(table, index){
+
+                if (table.isWaiting) {
+                    $(self.element).find('[data-table]').eq(index).addClass('called');
+                }
+
+                if (table.isOrdered) {
+                    $(self.element).find('[data-table]').eq(index).addClass('ordered');
+                }
+
+            });
         });
     };
+
+    this.unload = function(){
+
+        clearInterval(self.updateScheduler);
+
+        delete self.updateScheduler;
+        delete self.tables;
+    };
+
     var self = this;
 };

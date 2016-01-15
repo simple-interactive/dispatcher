@@ -27,10 +27,7 @@ window.view = function() {
             if (!data) {
                 data = {};
             }
-            var copy = data.constructor();
-            for (var attr in data) {
-                if (data.hasOwnProperty(attr)) copy[attr] = data[attr];
-            }
+            var copy = $.extend(true, {}, data);
 
             copy.plugins = window.view.plugins;
 

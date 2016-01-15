@@ -1,0 +1,54 @@
+<ol class="breadcrumb breadcrumb-arrow animated fadeIn">
+
+    <li class="active"><span><%= plugins.translate('tablets-header') %></span></li>
+
+    <li class="active pull-right">
+        <button class="pull-right btn btn-primary" data-manage="true">tab-table-add-new-table</button>
+    </li>
+
+</ol>
+
+<div class="row devices">
+
+    <% if (devices.length) { %>
+
+    <% for (var i=0; i<devices.length; i++ ) { %>
+
+    <div class="col-xs-12 animated fadeIn device">
+
+        <div class="col-xs-3 text-primary text-left"><%= devices[i].name %></div>
+
+        <div class="col-xs-3 text-center"><%= devices[i].token %></div>
+
+        <div class="col-xs-3 text-center">
+            <% if ( devices[i].pair ) { %>
+                <i class="glyphicon glyphicon-ok text-success"></i>
+            <% } else { %>
+                <i class="glyphicon glyphicon-remove text-danger"></i>
+            <% } %>
+        </div>
+        <div class="col-xs-3 text-right">
+            <div class="row">
+                <div class="col-xs-7 col-xs-offset-5">
+                    <div class="btn-group btn-block">
+                        <button type="button" class="btn btn-block btn-primary dropdown-toggle" data-toggle="dropdown"><%= plugins.translate('settings') %> <span class="caret"></span></button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a data-manage="true" data-id="<%= devices[i].id %>"><span class="glyphicon glyphicon-edit"></span> <%= plugins.translate('edit') %></a></li>
+                            <li><a data-remove="true" data-id="<%= devices[i].id %>"><span class="glyphicon glyphicon-trash"></span> <%= plugins.translate('remove') %></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <% } %>
+
+    <% } else { %>
+
+    <div class="col-xs-12 animated fadeInLeft">
+        <p class="lead"><%= plugins.translate('there-no-devices') %></p>
+    </div>
+
+    <% } %>
+</div>

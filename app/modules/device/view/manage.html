@@ -1,0 +1,28 @@
+<div class="modal fade" tabindex="-1" data-device-manage="true" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title"><%= plugins.translate('table-manage-header') %></h4>
+            </div>
+            <div class="modal-body">
+
+                <form>
+                    <div class="form-group">
+                        <input data-target="name" placeholder="<%= plugins.translate('table-name') %>" type="text" class="form-control" data-name="true" value="<%= device.name %>">
+                    </div>
+                    <div class="form-group">
+                        <input data-target="token" placeholder="<%= plugins.translate('table-token') %>" type="text" class="form-control" data-token="true" value="<%= device.token %>">
+                    </div>
+                </form>
+
+                <div class="alert alert-danger animated fadeIn" data-error="true"></div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-save="true"><%= plugins.translate('save') %></button>
+                <button type="button" class="btn btn-default" data-dismiss="modal"><%= plugins.translate('cancel') %></button>
+            </div>
+        </div>
+    </div>
+</div>
