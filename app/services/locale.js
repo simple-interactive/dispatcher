@@ -32,6 +32,7 @@ window.services.locale = function() {
         "table-manage-header": {'ru': 'Управление планшетами'},
         "table-temp-name": {'ru': 'Стол №'},
         "save": {'ru': 'Сохранить'},
+        "cancel": {'ru': 'Отмена'},
         "token-invalid": {'ru': 'Неверный PIN или такой PIN уже существует'},
         "status-invalid": {'ru': 'Что-то пошло не так, советую обратиться в тех поддержку'},
         "name-invalid": {'ru': 'Неверное названия'},
@@ -49,6 +50,8 @@ window.services.locale = function() {
         "amount-all-orders": {'ru': 'Итого по всем заказам'},
         "not-orders": {'ru': 'Нет заказов'},
         "table-waiting": {'ru': 'Вызов официанта'},
+        "table-name": {'ru': 'Назвние или номер стола'},
+        "table-token": {'ru': 'PIN'},
     };
 
     var self = this;
