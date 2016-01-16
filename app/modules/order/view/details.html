@@ -6,10 +6,10 @@
             </div>
             <div class="modal-body ttt">
                 <%
-                    if (!table.isOrdered && table.isWaiting) {
+                    if (table.orders.length == 0 && table.isWaiting) {
                 %>
                     <h4><%= plugins.translate("table-waiting")%></h4>
-                <% } else if (!table.isOrdered){ %>
+                <% } else if (table.orders.length == 0){ %>
                     <h4><%= plugins.translate("not-orders")%></h4>
                 <% } %>
                 <% table.orders.forEach(function(order, index) { %>
