@@ -19,16 +19,21 @@ modules.orderDetails = function(){
                     self.unload();
                 });
 
-                $('[data-order-status]').on('click', function(){
+                $('[data-order-status]').on('click', function(e){
                     services.api.changeOrderStatus({
                         orderId: $(this).data('order'),
                         status: 'success'
+                    }, function(data){
+                        $(e.target).prop('disabled', true);
                     });
                 });
-                $('[data-order-pay-status]').on('click', function(){
+                $('[data-order-pay-status]').on('click', function(e){
+                    var button = this;
                     services.api.changeOrderPayStatus({
                         orderId: $(this).data('order'),
                         status: 'yes'
+                    }, function(data){
+                        $(e.target).prop('disabled', true);
                     });
                 });
             }

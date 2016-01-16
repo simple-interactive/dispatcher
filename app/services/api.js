@@ -35,12 +35,12 @@ window.services.api = function(){
         self.call('GET', 'order/list', {}, callback);
     };
 
-    this.changeOrderStatus = function(data){
-        self.call('POST', 'order/status', data);
+    this.changeOrderStatus = function(data, callback){
+        self.call('POST', 'order/status', data, callback);
     };
 
-    this.changeOrderPayStatus = function(data){
-        self.call('POST', 'order/pay', data);
+    this.changeOrderPayStatus = function(data, callback){
+        self.call('POST', 'order/pay', data, callback);
     };
 
     this.stopCallingWaiter = function(id, callback){
