@@ -86,11 +86,12 @@
                 <% }); %>
 
                 <hr>
-
+                <% if (table.orders.length > 0) { %>
                 <div class="row">
                     <div class="col-xs-6"><b><%= plugins.translate('amount-all-orders') %></b></div>
                     <div class="col-xs-6 text-right"><b><%= table.totalPrice %> <%= plugins.translate('currency') %></b></div>
                 </div>
+                <% } %>
 
             </div>
             <div class="modal-footer">
