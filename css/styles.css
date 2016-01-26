@@ -91,3 +91,13 @@ body {
 [data-order-details] .modal-dialog {
     width: 80%;
 }
+
+.ttt {
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+.row.toolbar {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

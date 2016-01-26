@@ -17,8 +17,11 @@
                     <hr>
 
                 <div class="row">
-                    <div class="col-xs-12">
-                        <h4 class="text-primary"><%= plugins.translate("order-details-number") + " " + (index + 1) %></h4>
+                    <div class="col-xs-6">
+                        <h4 class="text-primary"><%= plugins.translate("order-details-number") + (index + 1) %></h4>
+                    </div>
+                    <div class="col-xs-6 text-right">
+                        <h4 class="text-primary"><%= plugins.date("{hh}:{mins}", order.createdDate) %></h4>
                     </div>
                 </div>
 
@@ -63,23 +66,21 @@
                     <div class="col-xs-6 text-right"><b><%= order.price %> <%= plugins.translate("currency") %></b></div>
                 </div>
 
-                <div class="row">
-                    <div class="col-xs-6 text-right">
-                        <button class="btn btn-info"
-                                style="width: 200px;"
-                                data-order-status="true"
-                                data-order="<%= order.id %>"
-                        <% if (order.status == "success"){ %> disabled <% } %>>
-                        <%= plugins.translate('order-status') %></button>
-                    </div>
-                    <div class="col-xs-6 text-left">
-                        <button class="btn btn-success"
-                                style="width: 200px;"
-                                data-order-pay-status="true"
-                                data-order="<%= order.id %>"
-                        <% if (order.payStatus == "yes"){ %> disabled <% } %>>
-                        <%= plugins.translate('order-payStatus') %></button>
-                    </div>
+                <div class="row toolbar text-right">
+
+                    <button class="btn btn-info"
+                            style="width: 200px;"
+                            data-order-status="true"
+                            data-order="<%= order.id %>"
+                    <% if (order.status == "success"){ %> disabled <% } %>>
+                    <%= plugins.translate('order-status') %></button>
+
+                    <button class="btn btn-success"
+                            style="width: 200px;"
+                            data-order-pay-status="true"
+                            data-order="<%= order.id %>"
+                    <% if (order.payStatus == "yes"){ %> disabled <% } %>>
+                    <%= plugins.translate('order-payStatus') %></button>
 
                 </div>
 
