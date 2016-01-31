@@ -2,8 +2,8 @@ module.exports = function(grunt) {
 
     var config = {
         prod : {
-            endpoint: 'http://185.70.109.10:85/dispatcher',
-            token: 'dispatcher-prod'
+            endpoint: 'http://192.168.0.100:81/dispatcher',
+            token: null
         },
         dev: {
             endpoint: 'http://md-back/dispatcher',
@@ -16,7 +16,12 @@ module.exports = function(grunt) {
 
     grunt.option('force', true);
 
-    grunt.file.delete(build);
+    grunt.file.delete(build + "/.htaccess");
+    grunt.file.delete(build + "/app.min.css");
+    grunt.file.delete(build + "/app.min.js");
+    grunt.file.delete(build + "/fonts");
+    grunt.file.delete(build + "/images");
+    grunt.file.delete(build + "/index.html");
 
     var configuration = {
         pkg: grunt.file.readJSON('package.json'),
