@@ -7,7 +7,7 @@ module.exports = function(grunt) {
         },
         dev: {
             endpoint: 'http://185.70.109.10:85/dispatcher',
-            token: '1234'
+            token: null
         }
     };
 
