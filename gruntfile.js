@@ -6,7 +6,7 @@ module.exports = function(grunt) {
             token: null
         },
         dev: {
-            endpoint: 'http://md-back/dispatcher',
+            endpoint: 'http://185.70.109.10:85/dispatcher',
             token: '1234'
         }
     };
