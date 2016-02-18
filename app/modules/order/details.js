@@ -19,6 +19,13 @@ modules.orderDetails = function(){
                     self.unload();
                 });
 
+                $('[data-order-cancel]').on('click', function(){
+                    var source = $(this);
+                    window.services.api.cancelOrder(source.data('order'), function(){
+                        source.parent().children().prop('disabled', true);
+                    });
+                });
+
                 $('[data-order-status]').on('click', function(e){
                     services.api.changeOrderStatus({
                         orderId: $(this).data('order'),

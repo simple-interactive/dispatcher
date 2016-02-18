@@ -82,6 +82,12 @@
                     <% if (order.payStatus == "yes"){ %> disabled <% } %>>
                     <%= plugins.translate('order-payStatus') %></button>
 
+                    <button class="btn btn-warning"
+                            style="width: 200px;"
+                            data-order-cancel="false"
+                            data-order="<%= order.id %>">
+                    <%= plugins.translate('order-cancel') %></button>
+
                 </div>
 
                 <% }); %>

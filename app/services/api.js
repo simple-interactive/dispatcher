@@ -47,6 +47,10 @@ window.services.api = function(){
         self.call('POST', 'table/stop-calling-waiter', {id: id}, callback);
     };
 
+    this.cancelOrder = function(id, callback){
+        self.call('POST', 'order/cancel', {id: id}, callback);
+    };
+
     /**
      * Send request to an api
      *
