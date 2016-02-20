@@ -9,42 +9,50 @@ modules.orderDetails = function(){
 
         self.view.render('order/view/details', {table: self.params.table}, function(tpl){
 
-                $('body').prepend(tpl);
+            $('body').prepend(tpl);
 
-                if (self.table.isWaiting) {
-                    services.api.stopCallingWaiter(self.params.table.id);
-                }
-
-                $('[data-order-details]').modal().on('hidden.bs.modal', function(){
-                    self.unload();
-                });
-
-                $('[data-order-cancel]').on('click', function(){
-                    var source = $(this);
-                    window.services.api.cancelOrder(source.data('order'), function(){
-                        source.parent().children().prop('disabled', true);
-                    });
-                });
-
-                $('[data-order-status]').on('click', function(e){
-                    services.api.changeOrderStatus({
-                        orderId: $(this).data('order'),
-                        status: 'success'
-                    }, function(data){
-                        $(e.target).prop('disabled', true);
-                    });
-                });
-                $('[data-order-pay-status]').on('click', function(e){
-                    var button = this;
-                    services.api.changeOrderPayStatus({
-                        orderId: $(this).data('order'),
-                        status: 'yes'
-                    }, function(data){
-                        $(e.target).prop('disabled', true);
-                    });
-                });
+            if (self.table.isWaiting) {
+                services.api.stopCallingWaiter(self.params.table.id);
             }
-        );
+
+            $('[data-order-details]').modal().on('hidden.bs.modal', function(){
+                self.unload();
+            });
+
+            $('[data-order-cancel]').on('click', function(){
+                var source = $(this);
+                window.services.api.cancelOrder(source.data('order'), function(){
+                    source.parent().children().prop('disabled', true);
+                });
+            });
+
+            $('[data-order-status]').on('click', function(e){
+                services.api.changeOrderStatus({
+                    orderId: $(this).data('order'),
+                    status: 'success'
+                }, function(data){
+                    $(e.target).prop('disabled', true);
+
+                    //if ($(e.target).parent().find('[data-order-pay-status]').attr('disabled') == "disabled") {
+                    //    $(e.target).closest('[data-order-item]').fadeOut();
+                    //}
+
+                });
+            });
+            $('[data-order-pay-status]').on('click', function(e){
+                services.api.changeOrderPayStatus({
+                    orderId: $(this).data('order'),
+                    status: 'yes'
+                }, function(data){
+                    $(e.target).prop('disabled', true);
+
+                    //if ($(e.target).parent().find('[data-order-status]').attr('disabled') == "disabled") {
+                    //    $(e.target).closest('[data-order-item]').fadeOut();
+                    //}
+
+                });
+            });
+        });
     };
 
     this.calculatedOrder = function(){
@@ -77,9 +85,6 @@ modules.orderDetails = function(){
                 self.table.totalPrice += self.table.orders[index].price;
             }
         });
-
-        console.log(self.table);
-
     };
 
     this.unload = function(){

@@ -52,6 +52,8 @@ window.services.locale = function() {
         "table-waiting": {'ru': 'Вызов официанта'},
         "table-name": {'ru': 'Назвние или номер стола'},
         "table-token": {'ru': 'PIN'},
+        "order-cancel": {'ru': 'Отменить заказ'},
+        "order-paymentMethod-card": {'ru': '(по безналу)'},
     };
 
     var self = this;

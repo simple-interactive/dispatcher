@@ -23,9 +23,7 @@ modules.order = function (){
 
                 $(self.element).find('[data-table]').on('click', function(){
                     var table = self.tables[$(this).index()];
-                    //if (table.isWaiting || table.isOrdered) {
-                        module.load('orderDetails', {table: self.tables[$(this).index()]});
-                    //}
+                    module.load('orderDetails', {table: self.tables[$(this).index()]});
                 });
             });
         });
