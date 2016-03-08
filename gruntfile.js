@@ -2,11 +2,11 @@ module.exports = function(grunt) {
 
     var config = {
         prod : {
-            endpoint: 'http://192.168.1.100:81/dispatcher',
+            endpoint: 'http://execrot.backend.simple.direct/dispatcher',
             token: null
         },
         dev: {
-            endpoint: 'http://185.70.109.10:85/dispatcher',
+            endpoint: 'http://execrot.backend.simple.direct/dispatcher',
             token: null
         }
     };
