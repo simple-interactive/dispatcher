@@ -2,6 +2,20 @@ body.auth {
     background-color: #CCD1D9;
 }
 
+[data-module=auth] img.logo {
+    width: 80%;
+    margin-bottom: 40px;
+    margin-top: 40px;
+}
+
+[data-module=auth] [data-error] {
+    display: none;
+}
+
+[data-module=auth] [data-error] .alert {
+    margin-bottom: 15px;
+}
+
 body {
     background-color: rgb(241, 242, 246);
 }

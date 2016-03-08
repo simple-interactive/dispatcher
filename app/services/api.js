@@ -8,6 +8,20 @@ window.services.api = function(){
         token : config.token
     };
 
+    this.setToken = function(token){
+        this.config.token = token;
+    };
+
+    this.login = function(data, callback){
+
+        if (!self.config.endpoint) {
+            console.log("API Endpoint was not specified");
+            return;
+        }
+
+        $.post([self.config.endpoint, 'auth'].join('/'), data, callback);
+    };
+
     this.manageDevice = function(data, callback, failCallback){
         if (!data.id) {
             data.status =  'active';

@@ -1,12 +1,12 @@
 $(function(){
 
-    window.dispatcher.preDispatch = function(){
-        if (!window.config.token) {
-            window.config.token = cookie.getItem('token');
-        }
-    };
-
     window.dispatcher.postDispatch = function () {
-        module.load('layout');
+        if (!services.user.isLoginIn()) {
+            module.unloadAll();
+            module.load('auth');
+        }
+        else {
+            module.load('layout');
+        }
     };
 });

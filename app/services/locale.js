@@ -54,6 +54,15 @@ window.services.locale = function() {
         "table-token": {'ru': 'PIN'},
         "order-cancel": {'ru': 'Отменить заказ'},
         "order-paymentMethod-card": {'ru': '(по безналу)'},
+        "dispatcher-sign-in": {'ru': 'Вход в Диспетчерскую'},
+        "login": {'ru': 'Логин'},
+        "password": {'ru': 'Пароль'},
+        "sign-in": {'ru': 'Вход'},
+        "sign-in-error": {'ru': 'Логин или пароль указаны неверно'},
+        "menu-logout": {'ru': 'Выход'},
+        "any-questions": {'ru': 'Возникли вопросы?'},
+        "call-us": {'ru': 'Позвоните нам'},
+        "ok": {'ru': 'OK'},
     };
 
     var self = this;

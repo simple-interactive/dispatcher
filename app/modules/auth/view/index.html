@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-offset-2 col-xs-8 col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-3 text-center">
+
+            <!-- <img class="img-rounded logo animated zoomIn" src="images/logo.png">-->
+
+            <div class="thumbnail animated zoomIn">
+
+                <div class="caption">
+
+                    <p class="lead"><%= plugins.translate('dispatcher-sign-in') %></p>
+
+                    <form>
+                        <div class="row">
+                            <div class="col-xs-10 col-xs-offset-1 form-group">
+                                <div class="input-group" data-input-addon="true">
+                                    <input type="text" class="form-control" placeholder="<%= plugins.translate('login') %>" name="login">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-10 col-xs-offset-1 form-group">
+                                <div class="input-group" data-input-addon="true">
+                                    <input type="password" class="form-control" placeholder="<%= plugins.translate('password') %>" name="password">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" data-error="true">
+                            <div class="col-xs-10 col-xs-offset-1">
+                                <div class="alert alert-danger animated bounceIn"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-10 col-xs-offset-1">
+                                <button type="submit" class="btn btn-primary btn-block"><%= plugins.translate('sign-in') %></button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-offset-1 col-xs-10">
+                                <hr />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-offset-1 col-xs-10 text-left">
+                                <!-- a class="btn btn-link btn-sm">I forgot my password</a><br / -->
+                                <a data-action-support="true" class="btn btn-link btn-sm"><%= plugins.translate('menu-contact-administrator') %></a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
