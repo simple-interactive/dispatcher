@@ -6,7 +6,7 @@ modules.order = function (){
     this.init = function(){
 
         self.updateScheduler = setInterval(function(){
-            self.loadOrder();
+            self.loadTable();
         }, 2000);
 
         self.loadTable();
